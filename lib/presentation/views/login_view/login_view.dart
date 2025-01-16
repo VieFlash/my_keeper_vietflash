@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_keeper_vietflash/config/router/routers/home_router.dart';
 import 'package:my_keeper_vietflash/presentation/views/login_view/bloc/login_event.dart';
-import 'package:my_keeper_vietflash/presentation/widgets/common_loading.dart';
 
 import '../../../common/res/colors.dart';
 import '../../../common/res/dimens.dart';
@@ -10,6 +9,7 @@ import '../../../config/di/app_module.dart';
 import '../../../config/log/log.dart';
 import '../../../config/router/utils/navigator_utils.dart';
 import '../../widgets/common_button.dart';
+import '../../widgets/common_dialog.dart';
 import '../../widgets/common_gaps.dart';
 import '../../widgets/common_loading_dialogs.dart';
 import '../../widgets/common_text_field.dart';
@@ -44,11 +44,21 @@ class _LoginViewState extends State<LoginView> {
         listener: (_, state) {
           if (state is LoginStateLoading) {
             showLoadingDialog(context);
-            Log.d("VietTD: Emitter Loading");
+          }
+          hideLoadingDialog(context);
+
+          if (state is LoginStateError) {
+            showIOSDialog(
+              title: _loginBloc.messageError,
+              firstButtonText: 'OK',
+              firstButtonCallback: () {
+                Navigator.of(context).pop();
+              },
+              context: context,
+            );
           }
           if (state is LoginStateSuccess) {
             HomeRouter.goMainView(context);
-            Log.d("VietTD: Emitter Success");
           }
         },
         child: _buildBody(),
@@ -117,7 +127,9 @@ class _LoginViewState extends State<LoginView> {
                   Gaps.vGap20,
                   CommonButton(
                     onPressed: () {
-                      _loginBloc.add(LoginEventLogin(email: _loginEmailCtrl.text, password: _passwordCtrl.text));
+                      _loginBloc.add(LoginEventLogin(
+                          email: _loginEmailCtrl.text,
+                          password: _passwordCtrl.text));
                     },
                     title: "Login",
                     backgroundColor: ColorsRes.black,

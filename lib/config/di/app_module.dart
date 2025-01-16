@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
+import 'package:native_shared_preferences/native_shared_preferences.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import '../../data/utils/interceptors.dart';
 import '../../flavors.dart';
@@ -19,6 +20,11 @@ Future<void> configureDependencies() async => $initGetIt(serviceLocator);
 @module
 @Singleton()
 abstract class AppModule {
+  @preResolve
+  @Singleton()
+  Future<NativeSharedPreferences> get sharedPreferences =>
+      NativeSharedPreferences.getInstance();
+
   @Singleton()
   Dio get dio {
     var interceptors = [

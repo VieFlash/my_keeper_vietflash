@@ -15,11 +15,17 @@ class HomeRouter extends IRouterProvider {
 
     router.define(NavigatorPaths.main,
         handler: Handler(handlerFunc: (context, __) {
-          return const MainView();
-        }));  }
+      return const MainView();
+    }));
+  }
 
   static void goLogin(context) {
-    NavigatorUtils.push(context, NavigatorPaths.login);
+    NavigatorUtils.pushAndRemoveUntil(
+      context,
+      NavigatorPaths.login,
+      rootNavigator: true,
+      transition: TransitionType.native,
+    );
   }
 
   static void goMainView(context) {

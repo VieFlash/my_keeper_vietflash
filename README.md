@@ -1,16 +1,14 @@
-# my_keeper_vietflash
+### Build setup
 
-A new Flutter project.
+```bash
+# Sync package dependency
+$ flutter pub get
+# Generate files for packages
+$ flutter pub run build_runner build --delete-conflicting-outputs
 
-## Getting Started
+# Injectable
+# Use the [watch] flag to watch the files' system for edits and rebuild as necessary.
+$ flutter pub run build_runner watch --delete-conflicting-outputs
+```
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Build
