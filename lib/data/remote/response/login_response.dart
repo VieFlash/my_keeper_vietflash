@@ -9,7 +9,7 @@ class LoginResponse {
   @JsonKey(name: 'user')
   UserModel user;
 
-  @JsonKey(name: 'token')
+  @JsonKey(name: 'access_token')
   String accessToken;
 
   LoginResponse(

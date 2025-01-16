@@ -47,9 +47,15 @@ dependencies:
   # https://pub.dev/packages/fluro
   fluro: 2.0.5
 
+  # https://pub.dev/packages/flutter_native_splash
+  flutter_native_splash: ^2.2.19
+
   # Support multi languages
   # https://pub.dev/packages/intl
   intl: 0.18.1
+
+  # https://pub.dev/packages/flutter_screenutil
+  flutter_screenutil: ^5.9.3
 
   # https://pub.dev/packages/injectable
   injectable: ^2.3.2
@@ -91,6 +97,9 @@ dependencies:
 
   # https://pub.dev/packages/either_dart
   either_dart: ^1.0.0
+
+  native_shared_preferences:
+    path: ./extensions/native_shared_preferences
 
 dev_dependencies:
   flutter_test:

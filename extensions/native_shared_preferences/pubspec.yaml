@@ -1,0 +1,25 @@
+name: native_shared_preferences
+description: This packages is a copy of the shared_prefrences package but without the prefix in the keys. Is used to migrate the data from previous native app.
+version: 2.0.7
+homepage: https://github.com/yeniel/native_shared_preferences
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.12.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: yeniellandestoy.native_shared_preferences
+        pluginClass: NativeSharedPreferencesPlugin
+      ios:
+        pluginClass: NativeSharedPreferencesPlugin
