@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import '../../common/services/common_services.dart';
 import '../../config/di/app_module.dart';
 import '../../domain/local/pref/app_pref.dart';
+import '../../domain/usecase/get_token_use_case.dart';
 import '../../utils/info/app_info_utils.dart';
 import '../remote/base/base_response.dart';
 import 'data_constants.dart';
@@ -18,7 +19,7 @@ class AuthInterceptor extends QueuedInterceptor {
       RequestOptions options,
       RequestInterceptorHandler handler,
       ) async {
-    //accessToken = await serviceLocator<GetTokenUseCase>().call();
+    accessToken = await serviceLocator<GetTokenUseCase>().call();
     final deviceType = AppInfoUtils.deviceType;
     final currentVersion = await AppInfoUtils.currentVersion;
 
@@ -44,7 +45,7 @@ class AuthInterceptor extends QueuedInterceptor {
     } finally {}
 
     final commonService = serviceLocator<CommonServices>();
-    //final pref = serviceLocator<AppPref>();
+    final pref = serviceLocator<AppPref>();
     final data = BaseResponse.fromJson(response.data);
 
     if (response.statusCode != DataConstants.statusCode.forbidden &&

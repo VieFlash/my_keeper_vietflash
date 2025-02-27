@@ -1,1 +1,7 @@
-{}
+{
+  "@@locale": "en",
+  "notebook": "Notebook",
+  "wallet": "Wallet",
+  "analytics": "Analytics",
+  "more": "More"
+}

@@ -21,12 +21,10 @@ import '../../data/remote/service/authentication_service.dart' as _i7;
 import '../../data/repository/auth_repository_impl.dart' as _i11;
 import '../../domain/local/pref/app_pref.dart' as _i8;
 import '../../domain/repository/auth_repository.dart' as _i10;
+import '../../domain/usecase/get_token_use_case.dart' as _i14;
 import '../../domain/usecase/login_use_case.dart' as _i12;
-import '../../presentation/views/login_view/bloc/login_bloc.dart' as _i15;
-import '../../presentation/views/splash/controller/splash_controller.dart'
-    as _i14;
 import '../../presentation/widgets/common_gaps.dart' as _i5;
-import 'app_module.dart' as _i16;
+import 'app_module.dart' as _i15;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 Future<_i1.GetIt> $initGetIt(
@@ -57,13 +55,9 @@ Future<_i1.GetIt> $initGetIt(
       () => _i12.LoginUseCase(gh<_i10.AuthRepository>()));
   gh.singleton<_i13.CommonServices>(
       () => _i13.CommonServices(gh<_i8.AppPref>()));
-  gh.factory<_i14.SplashController>(
-      () => _i14.SplashController(gh<_i8.AppPref>()));
-  gh.factory<_i15.LoginBloc>(() => _i15.LoginBloc(
-        gh<_i12.LoginUseCase>(),
-        gh<_i8.AppPref>(),
-      ));
+  gh.factory<_i14.GetTokenUseCase>(
+      () => _i14.GetTokenUseCase(gh<_i8.AppPref>()));
   return getIt;
 }
 
-class _$AppModule extends _i16.AppModule {}
+class _$AppModule extends _i15.AppModule {}
