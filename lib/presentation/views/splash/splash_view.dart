@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:my_keeper_vietflash/common/base/base_mixin.dart';
 import '../../../common/res/colors.dart';
 import '../../../common/services/common_services.dart';
 import '../../../config/di/app_module.dart';
@@ -14,11 +15,11 @@ class SplashView extends StatefulWidget {
   State<SplashView> createState() => _SplashViewState();
 }
 
-class _SplashViewState extends State<SplashView> with WidgetsBindingObserver {
+class _SplashViewState extends State<SplashView> with BaseMixin{
   final _pref = serviceLocator<AppPref>();
 
   Future<void> loadLocal() async {
-    bool isLoggedIn = (await _pref.accessToken).isNotEmpty;
+    /*bool isLoggedIn = (await _pref.accessToken).isNotEmpty;
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       if (isLoggedIn) {
         HomeRouter.goMainView(context);
@@ -26,14 +27,17 @@ class _SplashViewState extends State<SplashView> with WidgetsBindingObserver {
         HomeRouter.goLogin(context);
       }
       FlutterNativeSplash.remove();
-    });
+    });*/
   }
 
   @override
   void initState() {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
-    loadLocal();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+      HomeRouter.goMainView(context);
+      FlutterNativeSplash.remove();
+    });
   }
 
   @override
