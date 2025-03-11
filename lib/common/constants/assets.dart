@@ -11,4 +11,7 @@ class Assets {
   static const walletIcon = '$pathIcons/ic_wallet.png';
   static const analyticsIcon = '$pathIcons/ic_analytics.png';
   static const moreIcon = '$pathIcons/ic_more.png';
+  static const pencilIcon = '$pathIcons/ic_pencil.png';
+  static const clearIcon = '$pathIcons/ic_clear.png';
+
 }
