@@ -26,7 +26,7 @@ class ColorsRes {
   static const orange = Color(0xFFFD960A);
   static const yellow = Color(0xFFFFAD00);
   static const red = Color(0xFFFF003D);
-  static const pink = Color(0xFFEB688E);
+  static const pink = Color(0xFFFC7FAC);
   static const green = Color(0xFF00C257);
   static const palePink = Color(0xFFFEC3D7);
   static const bgPink = Color(0xFFFFEAF2);
@@ -64,7 +64,7 @@ class ColorsRes {
   static const borderGray = Color(0XFFD9D9D9);
   static const bgLightYellow = Color(0XFFFFFEDB);
   static const inactive = Color(0xFFD3D3D4);
-  static const pinkTap = Color(0xFFFC7FAC);
+  static const pinkTap = Color(0xFFEB688E);
   static const pinkDefault = Color(0xFFFC0358);
   static const stepColor = Color(0XFFA1E0E2);
   static const darkGreen = Color(0XFF2EB993);

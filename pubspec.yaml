@@ -103,6 +103,9 @@ dependencies:
   # https://pub.dev/packages/either_dart
   either_dart: ^1.0.0
 
+  # https://pub.dev/packages/math_expressions
+  math_expressions: 2.4.0
+
   native_shared_preferences:
     path: ./extensions/native_shared_preferences
 
