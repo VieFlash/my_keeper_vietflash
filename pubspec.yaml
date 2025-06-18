@@ -109,12 +109,23 @@ dependencies:
   native_shared_preferences:
     path: ./extensions/native_shared_preferences
 
+  # https://pub.dev/packages/floor
+  floor: ^1.5.0
+
+  # https://pub.dev/packages/sqflite
+  sqflite: ^2.3.2
+
+  # https://pub.dev/packages/get
+  get: ^4.7.2
+
+
 dependency_overrides:
   intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  floor_generator: ^1.5.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

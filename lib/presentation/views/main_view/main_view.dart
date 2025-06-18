@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_keeper_vietflash/common/base/base_mixin.dart';
 import 'package:my_keeper_vietflash/presentation/views/main_view/widgets/common_tab_navigator.dart';
@@ -38,12 +39,13 @@ class _MainViewState extends State<MainView> with BaseMixin {
     BottomNavItem.more: CommonNavigatorObserver(),
   };
 
-  Future<void> initialData() async {
-  }
+  Future<void> initialData() async {}
 
   @override
   void initState() {
     super.initState();
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+        overlays: SystemUiOverlay.values);
     _currentNavItem = BottomNavItem.home;
 
     initialData();
@@ -52,15 +54,15 @@ class _MainViewState extends State<MainView> with BaseMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: ColorsRes.white,
-        body: Stack(
-          children: [
-            _buildOffstageNavigator(BottomNavItem.home),
-            _buildOffstageNavigator(BottomNavItem.wallet),
-            _buildOffstageNavigator(BottomNavItem.analytics),
-            _buildOffstageNavigator(BottomNavItem.more),
-          ],
-        ),
+      backgroundColor: ColorsRes.gray200,
+      body: Stack(
+        children: [
+          _buildOffstageNavigator(BottomNavItem.home),
+          _buildOffstageNavigator(BottomNavItem.wallet),
+          _buildOffstageNavigator(BottomNavItem.analytics),
+          _buildOffstageNavigator(BottomNavItem.more),
+        ],
+      ),
       bottomNavigationBar: _buildBottomBar(),
     );
   }
@@ -101,7 +103,7 @@ class _MainViewState extends State<MainView> with BaseMixin {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                      color: ColorsRes.white.withOpacity(0.1),
+                      color: ColorsRes.primary.withOpacity(0.1),
                       blurRadius: DimensRes.sp1,
                       offset: const Offset(1, 0))
                 ],
@@ -143,10 +145,9 @@ class _MainViewState extends State<MainView> with BaseMixin {
     required String label,
   }) {
     bool isActive = _currentNavItem == navItem;
-    Alignment alignment = Alignment.center;
     return Container(
-      color: ColorsRes.white.withOpacity(0.75),
-      alignment: alignment,
+      color: ColorsRes.primary,
+      alignment: Alignment.center,
       width: ScreenUtil().screenWidth / 4,
       height: DimensRes.sp60,
       child: Material(

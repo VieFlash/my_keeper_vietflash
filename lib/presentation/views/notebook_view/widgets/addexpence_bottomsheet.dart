@@ -18,6 +18,95 @@ class AddExpenseBottomSheet extends StatefulWidget {
 class _AddExpenseBottomSheetState extends State<AddExpenseBottomSheet> {
   String expression = "";
 
+  @override
+  Widget build(BuildContext context) {
+    return FractionallySizedBox(
+      heightFactor: 0.95,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Container(
+            alignment: Alignment.bottomRight,
+            padding: const EdgeInsets.all(DimensRes.sp12),
+            decoration: BoxDecoration(
+              color: ColorsRes.primary,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(DimensRes.sp16),
+                topRight: Radius.circular(DimensRes.sp16),
+              ),
+              border: Border.all(
+                color: ColorsRes.black,
+                width: 2,
+              ),
+            ),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(DimensRes.sp6),
+                      margin: const EdgeInsets.only(bottom: DimensRes.sp6),
+                      decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          color: ColorsRes.white),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            expression,
+                            style: const TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                          const Text(
+                            '(VNĐ)',
+                            style: TextStyle(
+                                color: ColorsRes.darkGray,
+                                fontSize: 10,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      )),
+                  Row(children: [
+                    buildButtonText("8386", color: Colors.white60),
+                    buildButtonText("8386", color: Colors.white60),
+                    buildButtonText("8386", color: Colors.white60),
+                    buildButtonIcon("C", Assets.clearIcon,
+                        color: Colors.white60),
+                  ]),
+                  Row(children: [
+                    buildButtonText("7"),
+                    buildButtonText("8"),
+                    buildButtonText("9"),
+                    buildButtonText("/", color: Colors.white60)
+                  ]),
+                  Row(children: [
+                    buildButtonText("4"),
+                    buildButtonText("5"),
+                    buildButtonText("6"),
+                    buildButtonText("×", color: Colors.white60)
+                  ]),
+                  Row(children: [
+                    buildButtonText("1"),
+                    buildButtonText("2"),
+                    buildButtonText("3"),
+                    buildButtonText("-", color: Colors.white60)
+                  ]),
+                  Row(children: [
+                    buildButtonText("."),
+                    buildButtonText("0"),
+                    buildButtonText("="),
+                    buildButtonText("+", color: Colors.white60)
+                  ]),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
   void onButtonPressed(String buttonText) {
     setState(() {
       bool isOperator = ["+", "-", "×", "/"].contains(buttonText);
@@ -145,95 +234,6 @@ class _AddExpenseBottomSheetState extends State<AddExpenseBottomSheet> {
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return FractionallySizedBox(
-      heightFactor: 0.95,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Container(
-            alignment: Alignment.bottomRight,
-            padding: const EdgeInsets.all(DimensRes.sp12),
-            decoration: BoxDecoration(
-              color: ColorsRes.primary,
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(DimensRes.sp16),
-                topRight: Radius.circular(DimensRes.sp16),
-              ),
-              border: Border.all(
-                color: ColorsRes.black,
-                width: 2,
-              ),
-            ),
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(DimensRes.sp6),
-                      margin: const EdgeInsets.only(bottom: DimensRes.sp6),
-                      decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(6)),
-                          color: ColorsRes.white),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            expression,
-                            style: const TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          const Text(
-                            '(VNĐ)',
-                            style: TextStyle(
-                                color: ColorsRes.darkGray,
-                                fontSize: 10,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      )),
-                  Row(children: [
-                    buildButtonText("8386", color: Colors.white60),
-                    buildButtonText("8386", color: Colors.white60),
-                    buildButtonText("8386", color: Colors.white60),
-                    buildButtonIcon("C", Assets.clearIcon,
-                        color: Colors.white60),
-                  ]),
-                  Row(children: [
-                    buildButtonText("7"),
-                    buildButtonText("8"),
-                    buildButtonText("9"),
-                    buildButtonText("/", color: Colors.white60)
-                  ]),
-                  Row(children: [
-                    buildButtonText("4"),
-                    buildButtonText("5"),
-                    buildButtonText("6"),
-                    buildButtonText("×", color: Colors.white60)
-                  ]),
-                  Row(children: [
-                    buildButtonText("1"),
-                    buildButtonText("2"),
-                    buildButtonText("3"),
-                    buildButtonText("-", color: Colors.white60)
-                  ]),
-                  Row(children: [
-                    buildButtonText("."),
-                    buildButtonText("0"),
-                    buildButtonText("="),
-                    buildButtonText("+", color: Colors.white60)
-                  ]),
-                ],
-              ),
-            ),
-          )
-        ],
       ),
     );
   }

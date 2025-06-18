@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ColorsRes {
   /// Main colors
-  static const primary = Color(0xFFFF7FAC);
+  static const primary = Color(0xFFFFF5F7);
   static const secondary = Color(0XCCFF6A92);
   static const contentLightTheme = Color(0xFF1D1D35);
   static const contentDarkTheme = Color(0xFFF5FCF9);
@@ -16,6 +16,8 @@ class ColorsRes {
   static const yellowCard = Color(0xFFFFF386);
   static const lightPink = Color(0xFFFFBFD7);
   static const blackText = Color(0xFF2B2B2B);
+
+  static const pinkWhite = Color(0xFFFDF3F6);
 
   /// Common colors
   static const black = Color(0xFF2B2B2B);

@@ -3,10 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:my_keeper_vietflash/common/base/base_mixin.dart';
 import '../../../common/res/colors.dart';
-import '../../../common/services/common_services.dart';
-import '../../../config/di/app_module.dart';
+
 import '../../../config/router/routers/home_router.dart';
-import '../../../domain/local/pref/app_pref.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -16,7 +14,6 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> with BaseMixin{
-  final _pref = serviceLocator<AppPref>();
 
   Future<void> loadLocal() async {
     /*bool isLoggedIn = (await _pref.accessToken).isNotEmpty;
